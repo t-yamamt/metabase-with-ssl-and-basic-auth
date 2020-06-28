@@ -1,4 +1,4 @@
-# Easy deployment of Metabase with a Nginx reverse proxy for SSL and basic auth
+# Easy deployment files of Metabase with a Nginx reverse proxy providing SSL and basic auth
 
 ## Usage
 
