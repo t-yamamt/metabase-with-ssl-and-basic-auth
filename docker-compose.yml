@@ -1,0 +1,33 @@
+version: "3"
+services:
+  metabase:
+    image: metabase/metabase
+    env_file: ./.env
+    volumes:
+      - ./metabase-data:/metabase-data
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mysql
+    restart: always
+
+  mysql:
+    image: mysql:5.7
+    env_file: ./.env
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    restart: always
+
+  ssl-proxy:
+    image: steveltn/https-portal
+    env_file: ./.env
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.log:/var/log/nginx
+      - ./ssl:/var/lib/https-portal
+    restart: always
+
