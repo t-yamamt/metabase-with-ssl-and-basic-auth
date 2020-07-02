@@ -5,8 +5,8 @@ services:
     env_file: ./.env
     volumes:
       - ./metabase-data:/metabase-data
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
     depends_on:
       - mysql
     restart: always
@@ -16,8 +16,8 @@ services:
     env_file: ./.env
     volumes:
       - ./mysql-data:/var/lib/mysql
-    ports:
-      - "3306:3306"
+    expose:
+      - "3306"
     restart: always
 
   ssl-proxy:
@@ -30,4 +30,3 @@ services:
       - ./nginx.log:/var/log/nginx
       - ./ssl:/var/lib/https-portal
     restart: always
-
