@@ -32,7 +32,7 @@ confirm docker has started
 $ sudo docker --version
 
 configure docker service to start up automatically when rebooting
-$ sudo systemctl enbale docker
+$ sudo systemctl enable docker
 
 install docker-compose
 $ sudo curl -L "https://github.com/docker/compose/releases/download/1.26.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose
